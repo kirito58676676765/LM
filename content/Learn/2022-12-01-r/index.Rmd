@@ -1,0 +1,97 @@
+---
+title: R统计分析 - 数据类型
+author: LM
+date: '2022-12-01'
+slug: r
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+关于R的下载和安装，可以登陆网站<https://www.r-project.org/>进行了解；在此不做过多赘述。这部分主要是针对R常用的一些数据结构和函数做的笔记。\
+
+#### 1.首先是常用的命令：\
+q() 表示退出R语言;ls() 列出工作空间中所有对象;rm() 移除对象
+
+```{r warning=FALSE,message=FALSE}
+getwd()  #查看当前工作目录
+setwd("C:\\Users\\lll\\Desktop") #设定R的工作目录
+rm(list = ls()) #清空工作环境
+```
+
+安装工具包：install.packages('name')
+
+```{r warning=FALSE,message=FALSE}
+#install.packages()
+
+#工具包的调用-2种方法
+library(ggplot2)
+require(ggplot2)
+```
+
+#### 2.数据类型\ 
+数值型：
+
+```{r warning=FALSE,message=FALSE}
+#数值型
+a =2
+class(a) #查看数据类型
+exp(1000) #正无穷
+-10/0 #负无穷
+exp(1000)/exp(900) #NaN类型
+```
+
+-----------------------\
+字符型：
+
+```{r warning=FALSE,message=FALSE}
+a = 'abc'
+class(a)
+
+b = '123'
+class(b)
+
+a;b
+#字符型转数值型
+c = as.numeric(b)
+class(c)
+c
+```
+
+--------------------------\
+逻辑型：取值为TURE和FALSE类型的数据
+
+```{r warning=FALSE,message=FALSE}
+a = 2>1
+b = 3>4
+a;b
+#逻辑数据可以做运算,R中TURE=1,FALSE=0
+(1 == 2)+(3<4)
+
+#逻辑数据列子
+data = iris
+data$Petal.Width[data$Species == 'setosa'] #选择类别为setosa的宽度数据
+```
+
+-------------------------\
+因子型：factor()生成
+
+```{r warning=FALSE,message=FALSE}
+a = factor(c('man','female','man'))
+a
+
+#上述等价于
+(a = factor(c('man','female','man'))) #赋值的同时运行变量。
+
+#同样可以对因子水平进行排序
+(b = factor(c('man','female','man'),ordered = T)) #按英文首字母顺序排序
+(c = factor(c(1,2,3),ordered = T)) #按数值大小排序
+
+#因子型的转换
+all = c(1,2,3);all
+as.factor(all)
+
+```
+
+

@@ -1,0 +1,60 @@
+---
+title: 经验分布函数相关性质
+author: LM
+date: '2022-03-23'
+slug: ''
+categories: []
+tags:
+  - statistics
+---
+
+```{r echo =FALSE,message=FALSE,warning=FALSE}
+library(shiny)
+library(bubblyr)
+
+ui <- fluidPage(
+
+    bubbly(theme = "ocean")
+
+)
+ui
+```
+
+### 经验分布函数:
+$$F_n\left( x \right)$$主要有2种表达：    
+i.
+$$
+F_n\left( x \right) =\begin{cases}
+	0 , x<x_{\left( 1 \right)}\\
+	\frac{k}{n}\,\,, x_{\left( k \right)}\leqslant x<x_{\left( k+1 \right)}\,\,, =1,2,\cdots ,n-1\\
+	1 , x_{\left( n \right)}\leqslant x\\
+\end{cases}
+$$
+ii.
+$$
+F_n\left( x \right) =\frac{1}{n}\sum_{i=1}^n{I\left\{ x_{\left( i \right)}\leqslant x \right\}}
+$$其中$x_{\left( i \right)}\text{是次序统计量}$ 
+
+我们给出其相关性质：    
+1.$F_n\left( x \right)$可以用作任意分布函数$F\left( x \right)$的估计。    
+2.期望：$$E\left( F_n\left( x \right) \right) =F\left( x \right) $$  
+3.方差：$$
+Var\left( F_n\left( x \right) \right) =\frac{F\left( x \right) \left( 1-F\left( x \right) \right)}{n}
+$$
+
+### 接下来我们给出其期望和方差的相关证明：
+1.期望    
+令$Y_i=I\left\{ x_{\left( i \right)}\leqslant x \right\}$那么有$F_n\left( x \right) =\frac{1}{n}\sum{Y_i}$。于是$E\left( F_n\left( x \right) \right) =E\left( \frac{1}{n}\sum_i{Y_i} \right) =E\left( Y_i \right) \,\,; Y_i\text{是}iid.$所以我们能得到$E\left( F_n\left( x \right) \right) =E\left( Y_i \right) =0+1\times P\left( x_{\left( i \right)}\leqslant x \right) =F\left( x \right)$  
+2.方差    
+基于示性函数我们有：$$
+Var\left( F_n\left( x \right) \right) =Var\left( \frac{1}{n}\sum_{i=1}{Y_i} \right) =\frac{1}{n}Var\left( Y_i \right) 
+\\
+=\frac{E\left( Y_{i}^{2} \right) -E^2\left( Y_i \right)}{n}=\frac{F\left( x \right) -F^2\left( x \right)}{n}
+$$
+注意到$E\left( Y_{i}^{2} \right) =E\left( Y_i \right) =P\left( x_{\left( i \right)}\leqslant x \right) =F\left( x \right)$。   
+以上就是经验分布统计量的期望和方差证明。
+
+
+
+
+

@@ -1,0 +1,26 @@
+---
+date: "2022-3-20:15:09"
+title: LM's Homepage
+---
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+library(shiny)
+library(bubblyr)
+
+ui <- fluidPage(
+
+    bubbly(theme = "bigmom")
+
+)
+ui
+```
+
+
+### Hello，大家好! 
+### 我叫龙淼，这里是我的个人博客网站~  
+### 2021级央财数理统计研究生,正在努力学习编程语言，借助这个博客分享个人的学习、生活点滴~
+
+
+![](/./home_files/(zhaoxi.net).png)
+![](/./home_files/sakura.png)
+

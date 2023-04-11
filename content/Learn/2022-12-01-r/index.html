@@ -1,0 +1,101 @@
+---
+title: R统计分析 - 数据类型
+author: LM
+date: '2022-12-01'
+slug: r
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>关于R的下载和安装，可以登陆网站<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>进行了解；在此不做过多赘述。这部分主要是针对R常用的一些数据结构和函数做的笔记。<br />
+</p>
+<div id="首先是常用的命令" class="section level4">
+<h4>1.首先是常用的命令：<br />
+</h4>
+<p>q() 表示退出R语言;ls() 列出工作空间中所有对象;rm() 移除对象</p>
+<pre class="r"><code>getwd()  #查看当前工作目录</code></pre>
+<pre><code>## [1] &quot;C:/Users/lll/Desktop/LMblog/content/Learn/2022-12-01-r&quot;</code></pre>
+<pre class="r"><code>setwd(&quot;C:\\Users\\lll\\Desktop&quot;) #设定R的工作目录
+rm(list = ls()) #清空工作环境</code></pre>
+<p>安装工具包：install.packages(‘name’)</p>
+<pre class="r"><code>#install.packages()
+
+#工具包的调用-2种方法
+library(ggplot2)
+require(ggplot2)</code></pre>
+</div>
+<div id="数据类型" class="section level4">
+<h4>2.数据类型 </h4>
+<p>数值型：</p>
+<pre class="r"><code>#数值型
+a =2
+class(a) #查看数据类型</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>exp(1000) #正无穷</code></pre>
+<pre><code>## [1] Inf</code></pre>
+<pre class="r"><code>-10/0 #负无穷</code></pre>
+<pre><code>## [1] -Inf</code></pre>
+<pre class="r"><code>exp(1000)/exp(900) #NaN类型</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<p>———————–<br />
+字符型：</p>
+<pre class="r"><code>a = &#39;abc&#39;
+class(a)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>b = &#39;123&#39;
+class(b)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>a;b</code></pre>
+<pre><code>## [1] &quot;abc&quot;</code></pre>
+<pre><code>## [1] &quot;123&quot;</code></pre>
+<pre class="r"><code>#字符型转数值型
+c = as.numeric(b)
+class(c)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>c</code></pre>
+<pre><code>## [1] 123</code></pre>
+<p>————————–<br />
+逻辑型：取值为TURE和FALSE类型的数据</p>
+<pre class="r"><code>a = 2&gt;1
+b = 3&gt;4
+a;b</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>#逻辑数据可以做运算,R中TURE=1,FALSE=0
+(1 == 2)+(3&lt;4)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>#逻辑数据列子
+data = iris
+data$Petal.Width[data$Species == &#39;setosa&#39;] #选择类别为setosa的宽度数据</code></pre>
+<pre><code>##  [1] 0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 0.2 0.2 0.1 0.1 0.2 0.4 0.4 0.3 0.3
+## [20] 0.3 0.2 0.4 0.2 0.5 0.2 0.2 0.4 0.2 0.2 0.2 0.2 0.4 0.1 0.2 0.2 0.2 0.2 0.1
+## [39] 0.2 0.2 0.3 0.3 0.2 0.6 0.4 0.3 0.2 0.2 0.2 0.2</code></pre>
+<p>————————-<br />
+因子型：factor()生成</p>
+<pre class="r"><code>a = factor(c(&#39;man&#39;,&#39;female&#39;,&#39;man&#39;))
+a</code></pre>
+<pre><code>## [1] man    female man   
+## Levels: female man</code></pre>
+<pre class="r"><code>#上述等价于
+(a = factor(c(&#39;man&#39;,&#39;female&#39;,&#39;man&#39;))) #赋值的同时运行变量。</code></pre>
+<pre><code>## [1] man    female man   
+## Levels: female man</code></pre>
+<pre class="r"><code>#同样可以对因子水平进行排序
+(b = factor(c(&#39;man&#39;,&#39;female&#39;,&#39;man&#39;),ordered = T)) #按英文首字母顺序排序</code></pre>
+<pre><code>## [1] man    female man   
+## Levels: female &lt; man</code></pre>
+<pre class="r"><code>(c = factor(c(1,2,3),ordered = T)) #按数值大小排序</code></pre>
+<pre><code>## [1] 1 2 3
+## Levels: 1 &lt; 2 &lt; 3</code></pre>
+<pre class="r"><code>#因子型的转换
+all = c(1,2,3);all</code></pre>
+<pre><code>## [1] 1 2 3</code></pre>
+<pre class="r"><code>as.factor(all)</code></pre>
+<pre><code>## [1] 1 2 3
+## Levels: 1 2 3</code></pre>
+</div>

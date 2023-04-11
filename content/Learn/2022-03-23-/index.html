@@ -1,0 +1,59 @@
+---
+title: 经验分布函数相关性质
+author: LM
+date: '2022-03-23'
+slug: ''
+categories: []
+tags:
+  - statistics
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+<script src="{{< blogdown/postref >}}index_files/jquery/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="{{< blogdown/postref >}}index_files/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="{{< blogdown/postref >}}index_files/bootstrap/accessibility/css/bootstrap-accessibility.min.css" rel="stylesheet" />
+<script src="{{< blogdown/postref >}}index_files/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{< blogdown/postref >}}index_files/bootstrap/accessibility/js/bootstrap-accessibility.min.js"></script>
+
+
+<div class="container-fluid">
+<script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
+<style>body{color:white}</style>
+<script>bubbly();</script>
+</div>
+<div id="经验分布函数" class="section level3">
+<h3>经验分布函数:</h3>
+<p><span class="math display">\[F_n\left( x \right)\]</span>主要有2种表达：<br />
+i.
+<span class="math display">\[
+F_n\left( x \right) =\begin{cases}
+    0 , x&lt;x_{\left( 1 \right)}\\
+    \frac{k}{n}\,\,, x_{\left( k \right)}\leqslant x&lt;x_{\left( k+1 \right)}\,\,, =1,2,\cdots ,n-1\\
+    1 , x_{\left( n \right)}\leqslant x\\
+\end{cases}
+\]</span>
+ii.
+<span class="math display">\[
+F_n\left( x \right) =\frac{1}{n}\sum_{i=1}^n{I\left\{ x_{\left( i \right)}\leqslant x \right\}}
+\]</span>其中<span class="math inline">\(x_{\left( i \right)}\text{是次序统计量}\)</span></p>
+<p>我们给出其相关性质：<br />
+1.<span class="math inline">\(F_n\left( x \right)\)</span>可以用作任意分布函数<span class="math inline">\(F\left( x \right)\)</span>的估计。<br />
+2.期望：<span class="math display">\[E\left( F_n\left( x \right) \right) =F\left( x \right) \]</span><br />
+3.方差：<span class="math display">\[
+Var\left( F_n\left( x \right) \right) =\frac{F\left( x \right) \left( 1-F\left( x \right) \right)}{n}
+\]</span></p>
+</div>
+<div id="接下来我们给出其期望和方差的相关证明" class="section level3">
+<h3>接下来我们给出其期望和方差的相关证明：</h3>
+<p>1.期望<br />
+令<span class="math inline">\(Y_i=I\left\{ x_{\left( i \right)}\leqslant x \right\}\)</span>那么有<span class="math inline">\(F_n\left( x \right) =\frac{1}{n}\sum{Y_i}\)</span>。于是<span class="math inline">\(E\left( F_n\left( x \right) \right) =E\left( \frac{1}{n}\sum_i{Y_i} \right) =E\left( Y_i \right) \,\,; Y_i\text{是}iid.\)</span>所以我们能得到<span class="math inline">\(E\left( F_n\left( x \right) \right) =E\left( Y_i \right) =0+1\times P\left( x_{\left( i \right)}\leqslant x \right) =F\left( x \right)\)</span><br />
+2.方差<br />
+基于示性函数我们有：<span class="math display">\[
+Var\left( F_n\left( x \right) \right) =Var\left( \frac{1}{n}\sum_{i=1}{Y_i} \right) =\frac{1}{n}Var\left( Y_i \right) 
+\\
+=\frac{E\left( Y_{i}^{2} \right) -E^2\left( Y_i \right)}{n}=\frac{F\left( x \right) -F^2\left( x \right)}{n}
+\]</span>
+注意到<span class="math inline">\(E\left( Y_{i}^{2} \right) =E\left( Y_i \right) =P\left( x_{\left( i \right)}\leqslant x \right) =F\left( x \right)\)</span>。<br />
+以上就是经验分布统计量的期望和方差证明。</p>
+</div>

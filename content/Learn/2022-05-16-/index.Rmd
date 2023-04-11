@@ -1,0 +1,65 @@
+---
+title: 高等数理统计 | 作业
+author: ''
+date: '2022-05-16'
+slug: ''
+categories: []
+tags:
+  - statistics
+---
+
+## 第一题
+
+卡方函数分布表和卡方分布的分位数表往往只对$n\leqslant 30$给出，$n>30$可用正态分布近似计算：\
+（1）自由度为35的卡方变量大于45的概率\
+（2）自由度为40的卡方分布的0.05的分位数
+
+(1).proof:    
+已知n个独立同分布的$\chi ^2\left( 1 \right)$ 相加为$\chi ^2\left( n \right)$ 分布，记统计量T=$\chi ^2\left( n \right)$ ，$T=\sum_{i=1}^n{\chi ^2\left( 1 \right)}\,\,; E\left( \chi ^2\left( 1 \right) \right) =1 ; VAR\left( \chi ^2\left( 1 \right) \right) =2$其中$T\sim\chi^2\left(n\right)$ ,那么根据中心极限定理有：$\frac{T-n\mu}{\sqrt{n\sigma ^2}}\sim N\left( 0,1 \right) \,\,; \mu =1 , \sigma ^2=2$ ,因此我们可以用正态去近似卡方分布。\
+故，当n=35时，$P\left( T>45 \right) =P\left( \frac{T-35}{\sqrt{2\times 35}}>\frac{10}{\sqrt{2\times 35}} \right) =1-\varPhi \left( \frac{10}{\sqrt{70}} \right)$
+
+(2).proof:    
+当n=40时，$\frac{T-40}{\sqrt{80}}\sim N\left( 0,1 \right)$,则根据正态分布的分位点有：$P\left( \frac{T-40}{\sqrt{80}}\leqslant u_{0.05} \right) =0.05 ; u_{0.05}=-u_{0.95}$,所以自由度为40的卡方分布的0.05分位点为$40-u_{0.95}\times \sqrt{80}$.
+
+```{r warning=FALSE,message=FALSE}
+#第一问
+result_1 = 1-pnorm(10/sqrt(70))
+
+#第二问
+result_2 = 40 - qnorm(0.95)*sqrt(80)
+
+re = data.frame("I"=result_1,"II"=result_2,row.names = "结果")
+library(knitr)
+library(kableExtra)
+kable(re,"html",digits = 2,align="c")
+```
+
+## 第二题
+
+泊松，指数分布总体参数$\lambda$的充分完备统计量
+
+```{r}
+
+```
+
+## 第三题
+
+设$X_1,X_2,\cdots ,X_n$是来自总体分布函数$F\left( X \right)$ 的一个样本，$F_n\left( X \right)$ 为其经验分布函数。求证：$\sqrt{n}\left( F_n\left( x \right) -F\left( x \right) \right) \xrightarrow{d}N\left( 0,F\left( x \right) \left( 1-F\left( x \right) \right) \right) .$
+
+```{r}
+
+```
+
+## 第四题
+
+第二章课后练习
+
+```{r}
+
+```
+
+## 第五题
+
+1.$X_1,X_2,\cdots ,X_n\,\,\sim Exp\left( \frac{1}{\theta} \right)$ ，考虑检验问题$H_0:\theta \leqslant \theta _0\leftrightarrow H_1:\theta >\theta _0$ 的UMPT.
+
+2\.
