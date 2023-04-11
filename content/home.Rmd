@@ -9,18 +9,17 @@ library(bubblyr)
 
 ui <- fluidPage(
 
-    bubbly(theme = "bigmom")
+    bubbly(theme = "life")
 
 )
 ui
 ```
 
 
-### Hello，大家好! 
-### 我叫龙淼，这里是我的个人博客网站~  
-### 2021级央财数理统计研究生,正在努力学习编程语言，借助这个博客分享个人的学习、生活点滴~
+### - Hello，大家好! -
+鄙人龙淼，一个普普通通的平凡人。    
+2021级中财数理统计研究生,正在努力学习编程,统计。    
+搭建这个博客平台，纯属个人兴趣，也希望能有个地分享平时的学习生活。    
 
-
-![](/./home_files/(zhaoxi.net).png)
-![](/./home_files/sakura.png)
+![](/./home_files/1.png){width=400px height=200px}
 

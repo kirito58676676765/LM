@@ -15,16 +15,25 @@ title: LM's Homepage
 <div class="container-fluid">
 <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
 <style>body{color:white}</style>
-<script>bubbly({colorStart: '#fff4e6', colorStop: '#ffe9e4', blur: 1, compose: 'source-over', bubbleFunc: () => `hsla(${Math.random() * 50}, 100%, 50%, .3)`});</script>
+<script>
+  bubbly({
+  colorStart: '#a4cc2b',
+  colorStop: '#CAB9C4',
+  bubbles:299,
+  blur:1,
+  compose: 'source-over',
+  bubbleFunc:() => `hsla(${200 + Math.random() * 10}, 100%, 50%, 1)`,
+  angleFunc:() => Math.random() > 0.5 ? Math.PI : 2 * Math.PI,
+  velocityFunc:() => 2 + Math.random() * 1,
+  radiusFunc:() => Math.random() * 7
+    });
+
+      </script>
 </div>
-<div id="hello大家好" class="section level3">
-<h3>Hello，大家好!</h3>
-</div>
-<div id="我叫龙淼这里是我的个人博客网站" class="section level3">
-<h3>我叫龙淼，这里是我的个人博客网站~</h3>
-</div>
-<div id="级央财数理统计研究生正在努力学习编程语言借助这个博客分享个人的学习生活点滴" class="section level3">
-<h3>2021级央财数理统计研究生,正在努力学习编程语言，借助这个博客分享个人的学习、生活点滴~</h3>
-<p><img src="/./home_files/(zhaoxi.net).png" /></p>
-<p><img src="/./home_files/sakura.png" /></p>
+<div id="hello大家好--" class="section level3">
+<h3>- Hello，大家好! -</h3>
+<p>鄙人龙淼，一个普普通通的平凡人。<br />
+2021级中财数理统计研究生,正在努力学习编程,统计。<br />
+搭建这个博客平台，纯属个人兴趣，也希望能有个地分享平时的学习生活。</p>
+<p><img src="/./home_files/1.png" width="400" height="200" /></p>
 </div>
